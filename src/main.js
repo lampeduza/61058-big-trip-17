@@ -1,4 +1,4 @@
-import {render} from './render.js';
+// import {render} from './render.js';
 import {HeaderPresenter, BodyPresenter} from './presenter/presenter.js';
 
 const headerPresenter = new HeaderPresenter();

@@ -130,19 +130,19 @@ const createNewPointWithoutDestinationTemplate = () => (`
 `);
 
 export default class NewPointWithoutDestinationView {
-	getTemplate() {
-		return createNewPointWithoutDestinationTemplate();
-	}
+  getTemplate() {
+    return createNewPointWithoutDestinationTemplate();
+  }
 
-	getElement() {
-		if (!this.element) {
-			this.element = createElement(this.getTemplate());
-		}
+  getElement() {
+    if (!this.element) {
+      this.element = createElement(this.getTemplate());
+    }
 
-		return this.element;
-	}
+    return this.element;
+  }
 
-	removeElement() {
-		this.element = null;
-	}
+  removeElement() {
+    this.element = null;
+  }
 }
