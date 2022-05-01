@@ -1,21 +1,9 @@
-import {createElement} from '../render.js';
+import View from '../view/view.js';
 
 const createLoadingTemplate = () => '<p class="trip-events__msg">Loading...</p>';
 
-export default class LoadingView {
+export default class LoadingView extends View {
   getTemplate() {
     return createLoadingTemplate();
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }

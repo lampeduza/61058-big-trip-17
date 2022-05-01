@@ -1,4 +1,4 @@
-import {createElement} from '../render.js';
+import View from '../view/view.js';
 
 const createEditPointTemplate = () => (`
   <form class="event event--edit" action="#" method="post">
@@ -136,20 +136,8 @@ const createEditPointTemplate = () => (`
   </form>
 `);
 
-export default class EditPointView {
+export default class EditPointView extends View {
   getTemplate() {
     return createEditPointTemplate();
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }

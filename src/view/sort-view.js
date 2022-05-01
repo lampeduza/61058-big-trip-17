@@ -1,4 +1,4 @@
-import {createElement} from '../render.js';
+import View from '../view/view.js';
 
 const createSortListTemplate = () => (`
 	<form class="trip-events__trip-sort  trip-sort" action="#" method="get">
@@ -25,20 +25,8 @@ const createSortListTemplate = () => (`
   </form>
 `);
 
-export default class SortListView {
+export default class SortListView extends View {
   getTemplate() {
     return createSortListTemplate();
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }

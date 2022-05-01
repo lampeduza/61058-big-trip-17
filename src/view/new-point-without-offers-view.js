@@ -1,4 +1,4 @@
-import {createElement} from '../render.js';
+import View from '../view/view.js';
 
 const createNewPointWithoutOffersTemplate = () => (`
   <form class="event event--edit" action="#" method="post">
@@ -97,20 +97,8 @@ const createNewPointWithoutOffersTemplate = () => (`
   </form>
 `);
 
-export default class NewPointWithoutOffersView {
+export default class NewPointWithoutOffersView extends View {
   getTemplate() {
     return createNewPointWithoutOffersTemplate();
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }
