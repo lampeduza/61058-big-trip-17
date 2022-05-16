@@ -1,5 +1,12 @@
 import dayjs from 'dayjs';
 
+const getRandomInteger = (a = 0, b = 1) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+
+  return Math.floor(lower + Math.random() * (upper - lower + 1));
+};
+
 const formatDate = (dueDate, date = 'DD/MM/YY HH:mm') => dayjs(dueDate).format(date);
 
 const generateDateFrom = () => {
@@ -20,13 +27,6 @@ const generateDateTo = (dateFrom) => {
   const isDate = getRandomInteger(30, 5 * 60);
 
   return dayjs(dateFrom).add(isDate, 'minute').toDate();
-};
-
-const getRandomInteger = (a = 0, b = 1) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-
-  return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
 export {getRandomInteger, formatDate, generateDateFrom, generateDateTo, getDifference};

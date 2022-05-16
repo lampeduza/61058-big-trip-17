@@ -2,39 +2,37 @@ import {formatDate, getDifference} from '../utils.js';
 import View from '../view/view.js';
 
 const createTripItemTemplate = (point) => {
-  const {type, destination, base_price, offers, date_from, date_to} = point;
-  const difference = getDifference(date_from, date_to);
+  const {type, destination, basePrice, offers, dateFrom, dateTo} = point;
+  const difference = getDifference(dateFrom, dateTo);
 
   return (
     `<li class="trip-events__item">
       <div class="event">
-        <time class="event__date" datetime="${formatDate(date_from, 'YYYY-MM-DD')}">${formatDate(date_from, 'MMM D')}</time>
+        <time class="event__date" datetime="${formatDate(dateFrom, 'YYYY-MM-DD')}">${formatDate(dateFrom, 'MMM D')}</time>
         <div class="event__type">
           <img class="event__type-icon" width="42" height="42" src="img/icons/${type}.png" alt="${type} icon">
         </div>
         <h3 class="event__title">${type} ${destination.name}</h3>
         <div class="event__schedule">
           <p class="event__time">
-            <time class="event__start-time" datetime="${formatDate(date_from, 'YYYY-MM-DDTHH:mm')}">${formatDate(date_from, 'HH:mm')}</time>
+            <time class="event__start-time" datetime="${formatDate(dateFrom, 'YYYY-MM-DDTHH:mm')}">${formatDate(dateFrom, 'HH:mm')}</time>
             —
-            <time class="event__end-time" datetime="${formatDate(date_to, 'YYYY-MM-DDTHH:mm')}">${formatDate(date_to, 'HH:mm')}</time>
+            <time class="event__end-time" datetime="${formatDate(dateTo, 'YYYY-MM-DDTHH:mm')}">${formatDate(dateTo, 'HH:mm')}</time>
           </p>
           <p class="event__duration">${difference}</p>
         </div>
         <p class="event__price">
-          €&nbsp;<span class="event__price-value">${base_price}</span>
+          €&nbsp;<span class="event__price-value">${basePrice}</span>
         </p>
           <h4 class="visually-hidden">Offers:</h4>
           <ul class="event__selected-offers">
-          ${offers.map((offer) => {
-            return (`
+          ${offers.map((offer) => (`
               <li class="event__offer">
                 <span class="event__offer-title">${offer.title}</span>
                 +€&nbsp;
                 <span class="event__offer-price">${offer.price}</span>
               </li>
-            `);
-          }).join('')}
+            `)).join('')}
         </ul>
         <button class="event__favorite-btn event__favorite-btn--active" type="button">
           <span class="visually-hidden">Add to favorite</span>
