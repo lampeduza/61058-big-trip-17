@@ -5,9 +5,11 @@ const destination = [
 		pictures: [
 			{
 				src: 'https://i.picsum.photos/id/534/248/152.jpg?hmac=uFYe3k-Qqv1YAJGKQshBGvwt0_PtMgNY0OP7F0dpHkg',
+				description: 'description for Beijing',
 			},
 			{
 				src: 'https://i.picsum.photos/id/962/248/142.jpg?hmac=dtFQotkGqcyTSeCPcwQ1QKB-GuSEjebmRVnasTpWr_s',
+				description: 'description 2',
 			},
 		],
 	},
@@ -17,6 +19,7 @@ const destination = [
 		pictures: [
 			{
 				src: 'https://i.picsum.photos/id/196/248/133.jpg?hmac=m1pCW-1a4mzmu4_hTKBbRRwVriLXKrbaECov8bxb3aM',
+				description: 'description for Tianjin',
 			},
 		],
 	},
@@ -26,6 +29,7 @@ const destination = [
 		pictures: [
 			{
 				src: 'https://i.picsum.photos/id/496/248/141.jpg?hmac=wTgELWyVvhXp2ZiolySen1L-xeKHdIe8whMM9x47HR0',
+				description: 'description for Chongqing',
 			}
 		],
 	},
@@ -35,6 +39,7 @@ const destination = [
 		pictures: [
 			{
 				src: 'https://i.picsum.photos/id/232/248/137.jpg?hmac=g4XRghKmL46bEz3MIZfAGePnsEkgzgbVUeF-obTvAtY',
+				description: 'description for Shanghai',
 			}
 		],
 	},

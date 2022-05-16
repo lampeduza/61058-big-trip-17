@@ -1,6 +1,7 @@
 import {getRandomInteger} from '../utils.js';
 import {destination} from '../fish/destination.js';
 import {offer} from '../fish/offer.js';
+import {formatDate, generateDateFrom, generateDateTo} from '../utils.js';
 
 // Тип
 const generateType = () => {
@@ -25,19 +26,28 @@ const generateDestination = (array) => {
 	return array[randomIndex];
 };
 
-const generateOffers = (array) => {
-	const randomIndex = getRandomInteger(0, array.length - 1);
-	return array[randomIndex];
-}
+
+const generateOffer = (array, type) => {
+	const arrayElement = array.find((element) => {
+		return element.type === type;
+	});
+
+	return arrayElement.offers;
+};
 
 // Generate offers' titles
+export const generatePoint = () => {
+	const type = generateType();
+	const dateFrom = generateDateFrom();
+	const dateTo = generateDateTo(dateFrom);
 
-export const generatePoint = () => ({
-		'type': generateType(),
+	return ({
+		'type': type,
 		'destination': generateDestination(destination),
-		'date from': '2019-07-10T22:55:56.845Z',
-		'date to': '2019-07-11T11:22:13.375Z',
+		'date_from': dateFrom,
+		'date_to': dateTo,
 		'base_price': getRandomInteger(1, 900),
-		'offers': generateOffers(offer),
+		'offers': generateOffer(offer, type),
 		'is favorite': false,
 	});
+};
