@@ -50,7 +50,7 @@ const createTripItemTemplate = (point) => {
 
 export default class TripItemView extends View {
   constructor(point) {
-    super(point);
+    super();
     this.point = point;
   }
 

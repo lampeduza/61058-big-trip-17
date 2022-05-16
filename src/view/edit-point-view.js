@@ -115,7 +115,7 @@ const createEditPointTemplate = (point) => {
 
 export default class EditPointView extends View {
   constructor(point) {
-    super(point);
+    super();
     this.point = point;
   }
 

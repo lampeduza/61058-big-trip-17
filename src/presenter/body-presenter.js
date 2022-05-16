@@ -13,7 +13,7 @@ export default class BodyPresenter {
   init = (bodyContainer, pointModel) => {
     this.bodyContainer = bodyContainer;
     this.pointModel = pointModel;
-    this.points = this.pointModel.getPoints();
+    this.points = this.pointModel.points;
 
     // Записали в свойства экземпляры компонентов
     this.sortListComponent = new SortListView();
@@ -26,8 +26,8 @@ export default class BodyPresenter {
     render(this.tripListComponent, this.bodyContainer);
 
     // События
-    for (let i = 0; i < this.points.length; i++) {
-      render(new TripItemView(this.points[i]), this.tripListComponent.getElement());
+    for (const point of this.points) {
+      render(new TripItemView(point), this.tripListComponent.getElement());
     }
 
     // Новая точка

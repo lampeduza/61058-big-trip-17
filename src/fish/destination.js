@@ -1,4 +1,4 @@
-const destination = [
+const destinations = [
   {
     name: 'Beijing',
     description: 'Пекин с трёх сторон окружён провинцией Хэбэй и граничит с Тяньцзинем на юго-востоке',
@@ -45,4 +45,4 @@ const destination = [
   },
 ];
 
-export {destination};
+export {destinations};

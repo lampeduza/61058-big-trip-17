@@ -1,6 +1,6 @@
 import {getRandomInteger} from '../utils.js';
-import {destination} from '../fish/destination.js';
-import {offer} from '../fish/offer.js';
+import {destinations} from '../fish/destination.js';
+import {offers} from '../fish/offer.js';
 import {generateDateFrom, generateDateTo} from '../utils.js';
 
 // Тип
@@ -39,13 +39,13 @@ export const generatePoint = () => {
   const dateFrom = generateDateFrom();
   const dateTo = generateDateTo(dateFrom);
 
-  return ({
-    'type': type,
-    'destination': generateDestination(destination),
+  return {
+    type,
+    'destination': generateDestination(destinations),
     'dateFrom': dateFrom,
     'dateTo': dateTo,
     'basePrice': getRandomInteger(1, 900),
-    'offers': generateOffer(offer, type),
+    'offers': generateOffer(offers, type),
     'isFavorite': false,
-  });
+  };
 };

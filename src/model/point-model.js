@@ -1,7 +1,9 @@
 import {generatePoint} from '../fish/generate.js';
 
-export default class PointModel {
-  points = Array.from({length: 3}, generatePoint);
+export default class PointsModel {
+  #points = Array.from({length: 3}, generatePoint);
 
-  getPoints = () => this.points;
+  get points() {
+    return this.#points;
+  };
 }
