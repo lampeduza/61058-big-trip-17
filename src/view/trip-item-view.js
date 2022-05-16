@@ -1,8 +1,9 @@
-import {formatDate} from '../utils.js';
+import {formatDate, getDifference} from '../utils.js';
 import View from '../view/view.js';
 
 const createTripItemTemplate = (point) => {
   const {type, destination, base_price, offers, date_from, date_to} = point;
+  const difference = getDifference(date_from, date_to);
 
   return (
     `<li class="trip-events__item">
@@ -18,7 +19,7 @@ const createTripItemTemplate = (point) => {
             —
             <time class="event__end-time" datetime="${formatDate(date_to, 'YYYY-MM-DDTHH:mm')}">${formatDate(date_to, 'HH:mm')}</time>
           </p>
-          <p class="event__duration">30M</p>
+          <p class="event__duration">${difference}</p>
         </div>
         <p class="event__price">
           €&nbsp;<span class="event__price-value">${base_price}</span>

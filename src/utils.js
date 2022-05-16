@@ -8,6 +8,14 @@ const generateDateFrom = () => {
   return dayjs('2021-01-18').add(isDate, 'minute').toDate();
 };
 
+const getDifference = (from, to) => {
+  const difference = Math.abs(dayjs(from).diff(dayjs(to), 'minute'));
+  const hours = Math.floor(difference / 60);
+  const minutes = difference % 60;
+
+  return `${hours}H ${minutes}M`;
+};
+
 const generateDateTo = (dateFrom) => {
   const isDate = getRandomInteger(30, 5 * 60);
 
@@ -21,4 +29,4 @@ const getRandomInteger = (a = 0, b = 1) => {
   return Math.floor(lower + Math.random() * (upper - lower + 1));
 };
 
-export {getRandomInteger, formatDate, generateDateFrom, generateDateTo};
+export {getRandomInteger, formatDate, generateDateFrom, generateDateTo, getDifference};
