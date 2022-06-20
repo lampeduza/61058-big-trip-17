@@ -1,18 +1,30 @@
-import HeaderPresenter from './presenter/header-presenter.js';
-import BodyPresenter from './presenter/body-presenter.js';
-import PointModel from './model/point-model.js';
+import TripInfoPresenter from './presenter/trip-info-presenter.js';
+import TripEventsBodyPresenter from './presenter/trip-events-body-presenter.js';
+import TripFiltersPresenter from './presenter/trip-filters-presenter.js';
+import TripEventsModel from './model/trip-events-model.js';
+import TripFiltersModel from './model/trip-filters-model.js';
+import TripEventsApiService from './trip-events-api-service.js';
 
-// for header presenter
-const tripMain = document.querySelector('.trip-main');
+const tripMainSite = document.querySelector('.trip-main');
+const tripFiltersSite = tripMainSite.querySelector('.trip-controls__filters');
+const tripEventsBodySite = document.querySelector('.trip-events');
 
-// for main presenter
-const tripEvents = document.querySelector('.trip-events');
+const AUTHORIZATION = 'Basic ybzertthlkjLkdjkbK';
+const END_POINT = 'https://17.ecmascript.pages.academy/big-trip';
 
-const headerPresenter = new HeaderPresenter();
-const bodyPresenter = new BodyPresenter();
+const tripEventsModel = new TripEventsModel(new TripEventsApiService(END_POINT ,AUTHORIZATION));
+const tripFiltersModel = new TripFiltersModel();
 
-const pointModel = new PointModel();
+const tripInfoPresenter = new TripInfoPresenter(tripMainSite, tripEventsModel);
+const tripEventsBodyPresenter = new TripEventsBodyPresenter(tripEventsBodySite, tripEventsModel, tripFiltersModel);
+const tripFiltersPresenter = new TripFiltersPresenter(tripEventsModel, tripFiltersModel, tripFiltersSite);
 
-headerPresenter.init(tripMain);
-bodyPresenter.init(tripEvents, pointModel);
+tripInfoPresenter.init();
+
+tripFiltersPresenter.init();
+
+tripEventsBodyPresenter.init();
+
+tripEventsModel.init();
+
 
